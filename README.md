@@ -86,7 +86,7 @@ Feature matrices:
 At layer $k$, each node $i$'s hidden representation $\mathbf{h}_i^{(k)}$ updates to:
 
 $$
-\mathbf{h}_i^{(k+1)} = \phi\Bigl( \sum_{l\in\{gg,dd,gd,dg\}} \sum_{j\in N_i^l} \frac{1}{\sqrt{|N_i^l|\,|N_j^l|}} W_l^{(k)} \mathbf{h}_j^{(k)} + W_{self}^{(k)}\mathbf{h}_i^{(k)}\Bigr),
+\mathbf{h}_i^{(k+1)} = \phi\Bigl( \sum_{l\in\{gg,dd,gd,dg\}} \sum_{j\in N_i^l} \frac{1}{\sqrt{|N_i^l|\,|N_j^l|}} W_l^{(k)} \mathbf{h}_j^{(k)} + W_{self}^{(k)}\mathbf{h}_i^{(k)}\Bigr)
 $$
 
 - $N_i^l$: neighbors via relation $l$
@@ -99,7 +99,7 @@ $$
 Final embeddings $\mathbf{z}_g,\mathbf{z}_d$ yield link score:
 
 $$
-s_{gd} = \sigma\bigl(\mathbf{z}_g^T W_{dec} \mathbf{z}_d\bigr),
+s_{gd} = \sigma\bigl(\mathbf{z}_g^T W_{dec} \mathbf{z}_d\bigr)
 $$
 
 with $W_{dec}\in\mathbb{R}^{D\times D}$ and sigmoid $\sigma(x)$.
@@ -108,7 +108,7 @@ with $W_{dec}\in\mathbb{R}^{D\times D}$ and sigmoid $\sigma(x)$.
 Binary cross-entropy with negative sampling:
 
 $$
-\mathcal{L} = -\sum_{(g,d)\in E_{gd}} \Bigl[\log s_{gd} + \mathbb{E}_{d'\sim U}\log(1 - s_{gd'})\Bigr].
+\mathcal{L} = -\sum_{(g,d)\in E_{gd}} \Bigl[\log s_{gd} + \mathbb{E}_{d'\sim U}\log(1 - s_{gd'})\Bigr]
 $$
 
 Negative samples $d'$ drawn uniformly over diseases.
