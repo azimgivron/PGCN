@@ -156,8 +156,6 @@ def main() -> None:
 
     # Initialize model
     model = PGCN(
-        num_gene_features=gene_feats.size(1),
-        num_disease_features=dis_feats.size(1),
         hidden_channels=64,
         out_channels=32,
         dropout=0.1,
