@@ -59,7 +59,7 @@ def train(
 
     num_pos = data["gene", "assoc", "disease"].edge_index.size(1)
 
-    # Log hyperparameter
+    # Log hyperparameters
     writer.add_hparams(
         {
             "lr": lr,
