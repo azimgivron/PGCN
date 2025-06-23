@@ -29,7 +29,7 @@ Use `build_hetero_data(...)` in `data_loader.py` to construct a `HeteroData` obj
 ## Usage
 
 ```bash
-pgcn-train -h
+>>> pgcn-train -h
 usage: pgcn-train [-h] --gene_features GENE_FEATURES --disease_features DISEASE_FEATURES --edge_gene_gene EDGE_GENE_GENE
                   --edge_dis_dis EDGE_DIS_DIS --assoc_gene_dis ASSOC_GENE_DIS [--epochs EPOCHS] [--batch_size BATCH_SIZE] [--lr LR]
                   [--weight_decay WEIGHT_DECAY] [--device DEVICE]
