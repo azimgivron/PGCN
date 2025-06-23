@@ -26,24 +26,35 @@ Use `build_hetero_data(...)` in `data_loader.py` to construct a `HeteroData` obj
 
 ---
 
-## Usage Example
+## Usage
 
-```python
-from data_loader import build_hetero_data
-from model import PGCN
-from train_test import train, test
+```bash
+pgcn-train -h
+usage: pgcn-train [-h] --gene_features GENE_FEATURES --disease_features DISEASE_FEATURES --edge_gene_gene EDGE_GENE_GENE
+                  --edge_dis_dis EDGE_DIS_DIS --assoc_gene_dis ASSOC_GENE_DIS [--epochs EPOCHS] [--batch_size BATCH_SIZE] [--lr LR]
+                  [--weight_decay WEIGHT_DECAY] [--device DEVICE]
 
-# Load feature matrices and edge indices (as torch tensors)
-data = build_hetero_data(
-    gene_features,
-    disease_features,
-    assoc_edge_index
-)
-model = PGCN(hidden_channels=64, out_channels=32, dropout=0.1)
-train(model, data)
+Train and test PGCN for disease–gene link prediction.
 
-# Evaluate on new pairs
-eval_scores = test(model, data, edge_label_index)
+options:
+  -h, --help            show this help message and exit
+  --gene_features GENE_FEATURES
+                        Path to .pt file with gene_features tensor
+  --disease_features DISEASE_FEATURES
+                        Path to .pt file with disease_features tensor
+  --edge_gene_gene EDGE_GENE_GENE
+                        Path to .pt file with edge_index_gene_gene tensor
+  --edge_dis_dis EDGE_DIS_DIS
+                        Path to .pt file with edge_index_dis_dis tensor
+  --assoc_gene_dis ASSOC_GENE_DIS
+                        Path to .pt file with assoc_gene_dis tensor
+  --epochs EPOCHS       Number of training epochs
+  --batch_size BATCH_SIZE
+                        Positive edges per mini-batch
+  --lr LR               Learning rate
+  --weight_decay WEIGHT_DECAY
+                        Weight decay (L2 penalty)
+  --device DEVICE       Device to run on ('cpu' or 'cuda')
 ```
 
 ---
