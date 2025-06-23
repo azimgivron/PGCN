@@ -1,0 +1,4 @@
+torch>=2.0
+torch-geometric>=2.1
+tensorboard>=2.13
+typing-extensions>=4.5

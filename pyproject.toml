@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pgcn"
+readme = "README.md"
+description = "Disease–gene prioritization via graph convolutional networks"
+classifiers = [
+    "Programming Language :: Python :: 3.11",
+]
+requires-python = ">=3.11"
+dynamic = ["version", "dependencies"]
+
+[project.scripts]
+pgcn-train = "pgcn.main:main"
+
+[tool.setuptools]
+packages = [
+    "pgcn",
+]
+
+[tool.setuptools.dynamic]
+dependencies = { file = "requirements.txt" }
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
