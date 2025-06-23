@@ -23,6 +23,7 @@ class PGCN(torch.nn.Module):
         conv_layer2 (HeteroConv): Second heterogeneous graph convolution layer.
         bilinear_decoder (torch.nn.Bilinear): Bilinear layer for link prediction.
         dropout_layer (torch.nn.Dropout): Dropout module.
+        dropout (float): Stored dropout rate for logging.
     """
 
     def __init__(
@@ -38,6 +39,7 @@ class PGCN(torch.nn.Module):
         """
         super().__init__()
         self.dropout_layer = torch.nn.Dropout(p=dropout)
+        self.dropout = dropout
 
         # First heterogeneous graph convolution
         conv_layers1 = {
