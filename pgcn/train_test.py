@@ -71,7 +71,7 @@ def train(
         {"hparam/avg_loss": 0},  # placeholder for scalar
     )
 
-    for epoch in tqdm(range(1, epochs + 1), total=epochs + 1, desc="Training"):
+    for epoch in tqdm(range(1, epochs + 1), total=epochs, desc="Training"):
         epoch_loss = 0.0
 
         for pos_batch, neg_batch in train_loader:
